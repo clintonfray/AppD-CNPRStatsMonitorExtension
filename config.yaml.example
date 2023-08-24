@@ -1,0 +1,34 @@
+# Use this only if SIM is enabled
+#metricPrefix: "Custom Metrics|URL Monitor|"
+
+# If SIM is not enabled, then use this
+metricPrefix: "Server|Component:<TIER_ID>|Custom Metrics|URL Monitor|"
+#To find the <COMPONENT_ID> in your environment,
+#please follow the screenshot https://docs.appdynamics.com/display/PRO42/Build+a+Monitoring+Extension+Using+Java
+
+# Client level configurations, common across all sites to be monitored
+
+defaultConfig:
+  api_timeout: 10000
+
+stats:
+  endpoint:
+    hostname: "127.0.0.1"
+    port: 8443
+  auth:
+    user: ""
+    pass: ""
+
+proxyConfig:
+  enabled: false
+  host: "localhost"
+  port: 80
+  username: ""
+  password: ""
+
+metrics:
+  - name: "answersSecure" 
+    alias: "Answers Secure"
+    aggregationType: "OBSERVATION"
+    timeRollUpType: "AVERAGE"
+    clusterRollUpType: "INDIVIDUAL"
