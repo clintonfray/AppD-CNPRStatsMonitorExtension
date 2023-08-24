@@ -12,9 +12,9 @@
     <monitor-configuration>
     </monitor-configuration>
     <monitor-run-task>
-        <execution-style>periodic</execution-style>
-        <execution-frequency-in-seconds>900</execution-frequency-in-seconds>
-        <execution-timeout-in-secs>120</execution-timeout-in-secs>
+        <execution-style>continuous</execution-style>
+        <!-- <execution-frequency-in-seconds>900</execution-frequency-in-seconds>
+        <execution-timeout-in-secs>120</execution-timeout-in-secs> -->
         <name>Run</name>
         <type>executable</type>
         <task-arguments>
