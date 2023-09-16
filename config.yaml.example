@@ -1,11 +1,3 @@
-# Use this only if SIM is enabled
-#metricPrefix: "Custom Metrics|URL Monitor|"
-
-# If SIM is not enabled, then use this
-metricPrefix: "Server|Component:<TIER_ID>|Custom Metrics|URL Monitor|"
-#To find the <COMPONENT_ID> in your environment,
-#please follow the screenshot https://docs.appdynamics.com/display/PRO42/Build+a+Monitoring+Extension+Using+Java
-
 # Client level configurations, common across all sites to be monitored
 
 defaultConfig:
