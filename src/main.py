@@ -43,14 +43,20 @@ def main():
                 try:
 
                     if metric.get(f'old_{metric_name}') is None:
+                        # Add the metric to the metric object
                         metric[f'old_{metric_name}'] = int(
                             results[metric_name])
                     else:
-                        new_metric_value = int(results[metric_name])
-                        metric_value = new_metric_value - \
-                            metric[f'old_{metric_name}']
-
                         try:
+                            new_metric_value = int(results[metric_name])
+                            prev_metric_value = metric[f'old_{metric_name}']
+                            metric_value = new_metric_value - \
+                                prev_metric_value
+
+                            # Update Prev Metric with the updated meter
+                            metric[f'old_{metric_name}'] = int(
+                                results[metric_name])
+
                             print(
                                 f"name=Custom Metrics|DNSCachingServer|{metric_alias},aggregator={aggregation_type},time-rollup={time_rollup_type},value={metric_value}")
 
