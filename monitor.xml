@@ -12,7 +12,7 @@
     <monitor-configuration>
     </monitor-configuration>
     <monitor-run-task>
-        <execution-style>continious</execution-style>
+        <execution-style>continuous</execution-style>
         <name>Run</name>
         <type>executable</type>
         <task-arguments></task-arguments>
