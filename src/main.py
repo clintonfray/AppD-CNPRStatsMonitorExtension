@@ -62,7 +62,7 @@ def main():
                         f'Exception: Unable to retrieve the Metric: {metric_name}')
 
             print('----------------------------')
-            time.sleep(30)
+            time.sleep(10)
 
     except Exception as e:
         print(f'Error: {e}')
