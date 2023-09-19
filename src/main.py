@@ -27,10 +27,12 @@ def main():
         stats_username = stats_config['stats']['auth']['user']
         stats_password = stats_config['stats']['auth']['pass']
         url_timeout = stats_config['defaultConfig']['api_timeout']
+        wait_time = stats_config['defaultConfig']['wait_time']
 
         while True:
+
             results = api_stats_connector(hostname=stats_hostname, port=stats_port,
-                                          username=stats_username, password=stats_password, verify=False)
+                                          username=stats_username, password=stats_password, verify=False, request_timeout=url_timeout)
 
             for metric in stats_config.get('metrics'):
 
@@ -66,7 +68,7 @@ def main():
                     log.error(
                         f'Exception: Unable to retrieve the Metric: {metric_name}')
 
-            time.sleep(60)
+            time.sleep(wait_time)
 
     except Exception as e:
         log.error(f'Error: {e}')

@@ -1,7 +1,8 @@
 # Client level configurations, common across all sites to be monitored
 
 defaultConfig:
-  api_timeout: 10000
+  api_timeout: 10      # Api timeout in seconds 
+  wait_time: 10           # Application Retry Wait time in seconds 
 
 stats:
   endpoint:

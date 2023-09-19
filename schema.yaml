@@ -18,6 +18,7 @@ metric_data:
 
 config:
   api_timeout: num()
+  wait_time: num()
 
 proxy:
   enabled: bool()
