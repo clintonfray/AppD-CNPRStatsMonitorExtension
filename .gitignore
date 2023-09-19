@@ -132,6 +132,8 @@ venv.bak/
 # Configuration Files
 config.yaml
 
+*.log.*
+
 
 # Spyder project settings
 .spyderproject

@@ -5,7 +5,7 @@ import urllib3
 import yaml
 import yamale
 import logging
-from libs.logging import logger
+from libs.logging import log
 
 urllib3.disable_warnings()
 
@@ -57,22 +57,19 @@ def main():
                             metric[f'old_{metric_name}'] = int(
                                 results[metric_name])
 
-                            print(
-                                f"name=Custom Metrics|DNSCachingServer|{metric_alias},aggregator={aggregation_type},time-rollup={time_rollup_type},value={metric_value}")
-                            logger.info(
+                            log.info(
                                 f"name=Custom Metrics|DNSCachingServer|{metric_alias},aggregator={aggregation_type},time-rollup={time_rollup_type},value={metric_value}")
                         except Exception as error:
-                            logger.error(
+                            log.error(
                                 f"Error occurred: The value is not a 64bit Integer. Metric Name: {metric_name}, Metric Value: {metric_value}")
                 except Exception as error:
-                    logger.error(
+                    log.error(
                         f'Exception: Unable to retrieve the Metric: {metric_name}')
 
-            print('----------------------------')
             time.sleep(60)
 
     except Exception as e:
-        logger.error(f'Error: {e}')
+        log.error(f'Error: {e}')
 
 
 def api_stats_connector(hostname=None, port=None, username=None, password=None, request_timeout=10, verify=True):
@@ -105,10 +102,10 @@ def load_app_config():
 
         yamale.validate(file_schema, file_config)
 
-        logging.info('Validation success! 👍')
+        log.info('Validation success! 👍')
 
     except yamale.YamaleError as e:
-        print('Validation failed!')
+        log.error('Validation failed!')
         for result in e.results:
             raise Exception(f"Error validating data {result.data}")
     except:
