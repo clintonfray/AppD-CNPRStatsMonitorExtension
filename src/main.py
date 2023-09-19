@@ -5,7 +5,7 @@ import urllib3
 import yaml
 import yamale
 import logging
-from libs.logging import logging
+from libs.logging import logger
 
 urllib3.disable_warnings()
 
@@ -61,15 +61,17 @@ def main():
                                 f"name=Custom Metrics|DNSCachingServer|{metric_alias},aggregator={aggregation_type},time-rollup={time_rollup_type},value={metric_value}")
 
                         except Exception as error:
-                            logging.error(f"Error occurred: The value is not a 64bit Integer. Metric Name: {metric_name}, Metric Value: {metric_value}")
+                            logger.error(
+                                f"Error occurred: The value is not a 64bit Integer. Metric Name: {metric_name}, Metric Value: {metric_value}")
                 except Exception as error:
-                    logging.error(f'Exception: Unable to retrieve the Metric: {metric_name}')
+                    logger.error(
+                        f'Exception: Unable to retrieve the Metric: {metric_name}')
 
             print('----------------------------')
             time.sleep(10)
 
     except Exception as e:
-        logging.error(f'Error: {e}')
+        logger.error(f'Error: {e}')
 
 
 def api_stats_connector(hostname=None, port=None, username=None, password=None, request_timeout=10, verify=True):
