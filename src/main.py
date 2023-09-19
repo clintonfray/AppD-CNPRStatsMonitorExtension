@@ -59,7 +59,8 @@ def main():
 
                             print(
                                 f"name=Custom Metrics|DNSCachingServer|{metric_alias},aggregator={aggregation_type},time-rollup={time_rollup_type},value={metric_value}")
-
+                            logger.info(
+                                f"name=Custom Metrics|DNSCachingServer|{metric_alias},aggregator={aggregation_type},time-rollup={time_rollup_type},value={metric_value}")
                         except Exception as error:
                             logger.error(
                                 f"Error occurred: The value is not a 64bit Integer. Metric Name: {metric_name}, Metric Value: {metric_value}")
@@ -68,7 +69,7 @@ def main():
                         f'Exception: Unable to retrieve the Metric: {metric_name}')
 
             print('----------------------------')
-            time.sleep(10)
+            time.sleep(60)
 
     except Exception as e:
         logger.error(f'Error: {e}')
